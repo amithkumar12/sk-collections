@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SK COLLECTIONS</title>
+  <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-[#4b0e0e] text-yellow-100 font-sans">
+  <header class="text-center py-6">
+    <img src="LOGO.png" alt="SK Collections Logo" class="mx-auto w-40" />
+    <h1 class="text-3xl font-bold mt-2">SK COLLECTIONS</h1>
+    <p class="text-yellow-200">Elegant Sarees for Every Occasion</p>
+  </header>
+
+  <!-- About Us -->
+  <section class="bg-[#5a1717] px-6 py-8">
+    <h2 class="text-2xl font-bold text-center mb-4">About Us</h2>
+    <p class="max-w-2xl mx-auto text-center text-yellow-200">
+      Welcome to <strong>SK COLLECTIONS</strong> – your destination for premium, handpicked sarees perfect for every occasion. 
+      We are a home-grown business passionate about celebrating traditional Indian textiles while offering modern elegance. 
+      Every saree we offer is carefully curated for its craftsmanship, comfort, and beauty. Thank you for supporting our journey.
+    </p>
+  </section>
+
+  <main class="px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
+    <!-- Saree Cards -->
+    <div class="bg-[#6e1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://i.imgur.com/GYU68TC.jpg" alt="Kanjivaram Silk" class="w-full h-64 object-cover" />
+      <div class="p-4">
+        <h2 class="text-xl font-bold">Kanjivaram Silk</h2>
+        <p class="text-yellow-200 text-sm">Traditional golden zari woven silk saree perfect for weddings.</p>
+        <p class="mt-2 font-semibold">Price: ₹2,499</p>
+        <button onclick="quickOrder('Kanjivaram Silk - ₹2,499')" class="mt-3 bg-yellow-500 text-black px-4 py-2 rounded-xl font-bold">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-[#6e1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://i.imgur.com/F2nTzPu.jpg" alt="Banarasi Georgette" class="w-full h-64 object-cover" />
+      <div class="p-4">
+        <h2 class="text-xl font-bold">Banarasi Georgette</h2>
+        <p class="text-yellow-200 text-sm">Lightweight festive saree with floral zari pattern, elegant drape.</p>
+        <p class="mt-2 font-semibold">Price: ₹1,999</p>
+        <button onclick="quickOrder('Banarasi Georgette - ₹1,999')" class="mt-3 bg-yellow-500 text-black px-4 py-2 rounded-xl font-bold">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-[#6e1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://i.imgur.com/4XMFLxy.jpg" alt="Cotton Handloom" class="w-full h-64 object-cover" />
+      <div class="p-4">
+        <h2 class="text-xl font-bold">Cotton Handloom</h2>
+        <p class="text-yellow-200 text-sm">Soft daily wear handloom saree with elegant temple border.</p>
+        <p class="mt-2 font-semibold">Price: ₹1,299</p>
+        <button onclick="quickOrder('Cotton Handloom - ₹1,299')" class="mt-3 bg-yellow-500 text-black px-4 py-2 rounded-xl font-bold">Order Now</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Order Form -->
+  <section class="bg-[#3a0d0d] px-6 py-8">
+    <h2 class="text-2xl font-bold text-center mb-4">Place Your Order</h2>
+    <form onsubmit="sendWhatsApp(); return false;" class="max-w-xl mx-auto space-y-4">
+      <input type="text" id="name" placeholder="Your Name" required class="w-full p-3 rounded bg-[#5b1a1a] text-white" />
+      <textarea id="address" placeholder="Your Address" required class="w-full p-3 rounded bg-[#5b1a1a] text-white"></textarea>
+      <input type="text" id="pincode" placeholder="Pincode" required class="w-full p-3 rounded bg-[#5b1a1a] text-white" />
+      <select id="product" class="w-full p-3 rounded bg-[#5b1a1a] text-white">
+        <option value="Kanjivaram Silk - ₹2,499">Kanjivaram Silk - ₹2,499</option>
+        <option value="Banarasi Georgette - ₹1,999">Banarasi Georgette - ₹1,999</option>
+        <option value="Cotton Handloom - ₹1,299">Cotton Handloom - ₹1,299</option>
+      </select>
+      <input type="text" id="screenshot" placeholder="Enter screenshot file name or upload and mention it here" required class="w-full p-3 rounded bg-[#5b1a1a] text-white" />
+      <button type="submit" class="w-full bg-yellow-500 text-black py-3 rounded-xl font-bold">Order via WhatsApp</button>
+      <p class="text-yellow-300 text-sm text-center mt-2">Note: Only online payment is available. Please include a screenshot of your payment.</p>
+    </form>
+  </section>
+
+  <!-- Payment QR Code -->
+  <section class="bg-[#5b1a1a] px-6 py-8 text-center">
+    <h2 class="text-2xl font-bold mb-4">Scan to Pay</h2>
+    <img src="https://via.placeholder.com/200x200.png?text=QR+Code" alt="QR Code for Payment" class="mx-auto rounded-lg shadow-lg" />
+    <p class="text-yellow-300 text-sm mt-2">Use any UPI app to scan and pay.</p>
+  </section>
+
+  <script>
+    function sendWhatsApp() {
+      const name = document.getElementById("name").value;
+      const address = document.getElementById("address").value;
+      const pincode = document.getElementById("pincode").value;
+      const product = document.getElementById("product").value;
+      const screenshot = document.getElementById("screenshot").value;
+      const message = `Hello, I'm ${name}.%0AI want to order the ${product} Saree.%0AAddress: ${address}%0APincode: ${pincode}%0APayment Screenshot: ${screenshot}`;
+      const phone = "917842129893";
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function quickOrder(product) {
+      const message = `Hello, I want to order the ${product} Saree.%0AName: [Your Name]%0AAddress: [Your Address]%0APincode: [Pincode]%0APayment Screenshot: [screenshot]`;
+      const phone = "917842129893";
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
